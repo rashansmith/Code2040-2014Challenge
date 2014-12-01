@@ -77,9 +77,9 @@ public class reverse {
 		    outt.flush();
 		    
 		    //get code
-		    //Scanner scann = new Scanner(rca.getInputStream());
-		    //while(scann.hasNextLine()) System.out.println(scann.nextLine());
-		    //scann.close();
+		    Scanner scann = new Scanner(rca.getInputStream());
+		    while(scann.hasNextLine()) System.out.println(scann.nextLine());
+		    scann.close();
 		}
 		    
 		    
