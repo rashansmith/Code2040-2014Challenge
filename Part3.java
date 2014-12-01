@@ -50,16 +50,29 @@ public class thePrefix {
 	    
 	    //Non-Prefix having method in action
 	    ArrayList<String> newList = certainPrefix(Prefix, finall);
+	    String w = "";
+	    for(int i = 0; i <newList.size(); i++)
+	    {
+	    	if(i == newList.size()-1)
+	    	{
+	    		 w += '"' + newList.get(i) + '"';
+	 	}
+	    	else
+    		{
+    			 w+= '"' + newList.get(i) + '"' + ',';
+    		}
+	    }
+	    String answer = "[" + w + "]";
 	    
 	    //Print statements so I can see whats going on
 	    System.out.println(ARRAY);
 	    System.out.println(Prefix);
-	    System.out.println(newList);
+	    System.out.println(answer);
 	    scan.close();
 	    
 	    
 	    //sending the Prefix-less Array back to the server
-	    String prfx = "{\"token\" : \"UtB497SiS6\", \"array\" :" + newList + " }";
+	    String prfx = "{\"token\" : \"UtB497SiS6\", \"array\" :" + answer + " }";
 	    URL url2 = new URL( "http://challenge.code2040.org/api/validateprefix" );  
 	    HttpURLConnection rca = (HttpURLConnection)url2.openConnection();  
 	    rca.setRequestMethod("POST");  
@@ -70,15 +83,15 @@ public class thePrefix {
 	    rca.setRequestProperty( "Content-Length", Integer.toString( lens ) );  
 	    rca.connect(); 
 	    
-	    //send code.
+	    //send my answer.
 	    OutputStreamWriter outt = new OutputStreamWriter(rca.getOutputStream());   
 	    outt.write( prfx, 0, lens );  
 	    outt.flush();
 	    
-	    //get code
-	    //Scanner scann = new Scanner(rca.getInputStream());
-	    //while(scann.hasNextLine()) System.out.println(scann.nextLine());
-	    //scann.close();
+	    //get response
+	    Scanner scann = new Scanner(rca.getInputStream());
+	    while(scann.hasNextLine()) System.out.println(scann.nextLine());
+	    scann.close();
 	}
 	
 	//Method to find strings without certain prefix
