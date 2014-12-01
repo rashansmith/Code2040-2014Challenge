@@ -12,15 +12,15 @@ public class needleInHayStack
 {
 	public static void main(String[] args) throws Exception
 	{
-	  //Submitting the request to receive my needle and Haystack
-		  String reqStr = "{\"token\" : \"UtB497SiS6\"}";
-		  URL url = new URL( "http://challenge.code2040.org/api/haystack" );  
+	    //Submitting the request to receive my needle and Haystack
+            String reqStr = "{\"token\" : \"UtB497SiS6\"}";
+            URL url = new URL( "http://challenge.code2040.org/api/haystack" );  
 	    HttpURLConnection rc = (HttpURLConnection)url.openConnection();  
 	    rc.setRequestMethod("POST");  
 	    rc.setDoOutput( true );  
 	    rc.setDoInput( true );   
 	    rc.setRequestProperty( "Content-Type", "application/json; charset=utf-8" );
-		  int len = reqStr.length();  
+            int len = reqStr.length();  
 	    rc.setRequestProperty( "Content-Length", Integer.toString( len ) );  
 	    rc.connect(); 
 	    
@@ -63,13 +63,13 @@ public class needleInHayStack
 	   
 	    //submitting the index of the needle 
 	    String needleInHay = "{\"token\" : \"UtB497SiS6\", \"needle\" :" + answer + " }";
-		  URL url2 = new URL( "http://challenge.code2040.org/api/validateneedle" );  
+            URL url2 = new URL( "http://challenge.code2040.org/api/validateneedle" );  
 	    HttpURLConnection rca = (HttpURLConnection)url2.openConnection();  
 	    rca.setRequestMethod("POST");  
 	    rca.setDoOutput( true );  
 	    rca.setDoInput( true );   
 	    rca.setRequestProperty( "Content-Type", "application/json; charset=utf-8" );
-	 	  int lens = needleInHay.length();  
+	    int lens = needleInHay.length();  
 	    rca.setRequestProperty( "Content-Length", Integer.toString( lens ) );  
 	    rca.connect(); 
 	    
@@ -79,13 +79,12 @@ public class needleInHayStack
 	    outt.flush();
 	    
 	    //get code
-	   // Scanner scann = new Scanner(rca.getInputStream());
-	  //  while(scann.hasNextLine()) System.out.println(scann.nextLine());
-	 //   scann.close();
+	    //Scanner scann = new Scanner(rca.getInputStream());
+	    //while(scann.hasNextLine()) System.out.println(scann.nextLine());
+	    //scann.close();
 	}
-	    
-	
-	
+	   
+	   
 	//method that finds the needle in Haystack
 	public static Integer findNeedle(String Needlle, String[] Haystackk)
 	{
@@ -96,7 +95,6 @@ public class needleInHayStack
 			{
 				 return found; 
 			}
-
 		}
 		return found;
 	}
