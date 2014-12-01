@@ -50,7 +50,7 @@ public class reverse {
 		        }
 		    }
 		    System.out.println(newString);
-		 }
+		    }
 		   //Reversing the string sent
 		    String result = reversethestring(newString);
 		    System.out.println(result);
