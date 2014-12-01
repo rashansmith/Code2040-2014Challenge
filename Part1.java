@@ -12,14 +12,14 @@ public class reverse {
 		// Requesting the string to be reversed
 		public static void main(String[] args) throws Exception
 		{
-			  String myId = "{\"token\" : \"UtB497SiS6\"}";
-		  	URL url = new URL( "http://challenge.code2040.org/api/getstring" );  
+		    String myId = "{\"token\" : \"UtB497SiS6\"}";
+		    URL url = new URL( "http://challenge.code2040.org/api/getstring" );  
 		    HttpURLConnection rc = (HttpURLConnection)url.openConnection();  
 		    rc.setRequestMethod("POST");  
 		    rc.setDoOutput( true );  
 		    rc.setDoInput( true );   
 		    rc.setRequestProperty( "Content-Type", "application/json; charset=utf-8" );
-		  	int len = myId.length();  
+		    int len = myId.length();  
 		    rc.setRequestProperty( "Content-Length", Integer.toString( len ) );  
 		    rc.connect(); 
 		    
@@ -36,7 +36,6 @@ public class reverse {
 		    while(scan.hasNextLine())
 		    {
 		    //System.out.println(scan.nextLine());
-		    //String input = scan.nextLine();
 		    String input = scan.nextLine();
 		    System.out.println(input);
 		    String[] parts = input.split(":");
@@ -47,13 +46,11 @@ public class reverse {
 		    	char c = output.charAt(i);
 		        if (Character.isLetter(c))
 		        {
-		        	//System.out.print(c);
-		        	newString += c;
+		    		newString += c;
 		        }
 		    }
 		    System.out.println(newString);
-		   
-		   }
+		 }
 		   //Reversing the string sent
 		    String result = reversethestring(newString);
 		    System.out.println(result);
@@ -64,13 +61,13 @@ public class reverse {
 		  //submitting the Reversed String 
 		    String reversedString = "{\"token\" : \"UtB497SiS6\", \"string\" :" + result + " }";
 		    //System.out.println(reversedString);
-		  	URL url2 = new URL( "http://challenge.code2040.org/api/validatestring" );  
+		    URL url2 = new URL( "http://challenge.code2040.org/api/validatestring" );  
 		    HttpURLConnection rca = (HttpURLConnection)url2.openConnection();  
 		    rca.setRequestMethod("POST");  
 		    rca.setDoOutput( true );  
 		    rca.setDoInput( true );   
 		    rca.setRequestProperty( "Content-Type", "application/json; charset=utf-8" );
-		  	int lens = reversedString.length();  
+		    int lens = reversedString.length();  
 		    rca.setRequestProperty( "Content-Length", Integer.toString( lens ) );  
 		    rca.connect(); 
 		    
@@ -80,9 +77,9 @@ public class reverse {
 		    outt.flush();
 		    
 		    //get code
-		  // Scanner scann = new Scanner(rca.getInputStream());
-		  //  while(scann.hasNextLine()) System.out.println(scann.nextLine());
-		 //   scann.close();
+		    //Scanner scann = new Scanner(rca.getInputStream());
+		    //while(scann.hasNextLine()) System.out.println(scann.nextLine());
+		    //scann.close();
 		}
 		    
 		    
@@ -94,13 +91,13 @@ public class reverse {
 				
 				if(original.length() == 1)
 				{
-		            return n;
-		        } 
+		            		return n;
+				} 
 				else 
 				{
-		            reversedString += original.charAt(original.length()-1) + reversethestring(original.substring(0                        ,original.length()-1));
-		            return reversedString;
-		        }
+		            		reversedString += original.charAt(original.length()-1) + reversethestring(original.substring(0                        ,original.length()-1));
+		            		return reversedString;
+		        	}
 			}	
 	}
 
