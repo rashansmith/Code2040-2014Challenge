@@ -1,3 +1,6 @@
+//This program finds words in an array that does NOT contain a certain prefix
+
+//imports
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -9,14 +12,14 @@ public class thePrefix {
 	public static void main(String[] args) throws Exception
 	{
 	    //requesting the prefix and array
-		  String reqStr = "{\"token\" : \"UtB497SiS6\"}";
-		  URL url = new URL( "http://challenge.code2040.org/api/prefix" );  
+	    String reqStr = "{\"token\" : \"UtB497SiS6\"}";
+            URL url = new URL( "http://challenge.code2040.org/api/prefix" );  
 	    HttpURLConnection rc = (HttpURLConnection)url.openConnection();  
 	    rc.setRequestMethod("POST");  
 	    rc.setDoOutput( true );  
 	    rc.setDoInput( true );   
 	    rc.setRequestProperty( "Content-Type", "application/json; charset=utf-8" );
-		  int len = reqStr.length();  
+            int len = reqStr.length();  
 	    rc.setRequestProperty( "Content-Length", Integer.toString( len ) );  
 	    rc.connect(); 
 	    
@@ -52,19 +55,18 @@ public class thePrefix {
 	    System.out.println(ARRAY);
 	    System.out.println(Prefix);
 	    System.out.println(newList);
-
 	    scan.close();
 	    
 	    
 	    //sending the Prefix-less Array back to the server
 	    String prfx = "{\"token\" : \"UtB497SiS6\", \"array\" :" + newList + " }";
-	 	  URL url2 = new URL( "http://challenge.code2040.org/api/validateprefix" );  
+	    URL url2 = new URL( "http://challenge.code2040.org/api/validateprefix" );  
 	    HttpURLConnection rca = (HttpURLConnection)url2.openConnection();  
 	    rca.setRequestMethod("POST");  
 	    rca.setDoOutput( true );  
 	    rca.setDoInput( true );   
 	    rca.setRequestProperty( "Content-Type", "application/json; charset=utf-8" );
-		  int lens = prfx.length();  
+            int lens = prfx.length();  
 	    rca.setRequestProperty( "Content-Length", Integer.toString( lens ) );  
 	    rca.connect(); 
 	    
@@ -89,10 +91,8 @@ public class thePrefix {
 				if(words[i].contains(word) != true)
 				{
 					newwords.add(words[i]);
-				
 				}
 			}
 			return newwords;
 		}
-
 }
