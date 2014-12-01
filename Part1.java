@@ -95,7 +95,7 @@ public class reverse {
 				} 
 				else 
 				{
-		            		reversedString += original.charAt(original.length()-1) + reversethestring(original.substring(0                        ,original.length()-1));
+		            		reversedString += original.charAt(original.length()-1) + reversethestring(original.substring(0,original.length()-1));
 		            		return reversedString;
 		        	}
 			}	
