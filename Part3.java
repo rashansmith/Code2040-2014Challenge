@@ -22,18 +22,16 @@ public class thePrefix {
             int len = reqStr.length();  
 	    rc.setRequestProperty( "Content-Length", Integer.toString( len ) );  
 	    rc.connect(); 
-	    
-	    //send code.
 	    OutputStreamWriter out = new OutputStreamWriter( rc.getOutputStream() );   
 	    out.write( reqStr, 0, len );  
 	    out.flush();
 	    
-	    //get results 
+	    //get results that contain prefix and array
 	    Scanner scan = new Scanner(rc.getInputStream());
 	    String input = scan.nextLine();
 	    System.out.println(input);
 	   
-	    //calculations to seperate Prefix and Array in the result sent back
+	    //various dissections done to seperate Prefix and Array in the result sent 
 	    String[] parts = input.split(":");
 	    String pre = parts[3];
 	    String[] partss = pre.split("}");
@@ -48,8 +46,9 @@ public class thePrefix {
 	    String ARRAY = aRRAY.replace("\"", "");
 	    String[] finall = ARRAY.split(" ");
 	    
-	    //Non-Prefix having method in action
+	    //CertainPrefix method in action, searching and pulling out words in an array that do NOT contain the prefix
 	    ArrayList<String> newList = certainPrefix(Prefix, finall);
+	    //other mini technical tweaks to the result to convert it to a format that can be submitted
 	    String w = "";
 	    for(int i = 0; i <newList.size(); i++)
 	    {
@@ -82,13 +81,11 @@ public class thePrefix {
             int lens = prfx.length();  
 	    rca.setRequestProperty( "Content-Length", Integer.toString( lens ) );  
 	    rca.connect(); 
-	    
-	    //send my answer.
 	    OutputStreamWriter outt = new OutputStreamWriter(rca.getOutputStream());   
 	    outt.write( prfx, 0, lens );  
 	    outt.flush();
 	    
-	    //get response
+	    //get response from endpoint
 	    Scanner scann = new Scanner(rca.getInputStream());
 	    while(scann.hasNextLine()) System.out.println(scann.nextLine());
 	    scann.close();
