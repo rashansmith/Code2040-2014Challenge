@@ -48,13 +48,13 @@ public class reverse {
 		    System.out.println("The reversed string is " + newString);
 		    }
 		    
-		   //Reversing the string sent
+		    //Reversing the string sent
 		    String result = reversethestring(newString);
 		    scan.close();
 		    
 		    
 		    
-		  //submitting the Reversed String 
+		    //submitting the Reversed String 
 		    String reversedString = "{\"token\" : \"UtB497SiS6\", \"string\" :" + "\"" + result + "\"" + " }";
 		    URL url2 = new URL( "http://challenge.code2040.org/api/validatestring" );  
 		    HttpURLConnection rca = (HttpURLConnection)url2.openConnection();  
