@@ -53,20 +53,19 @@ public class dateStampp
 	    String theresult = String.valueOf(testin);
 	    
 	    //println statements to keep track/make sure the interval and datestamp are seperated correctly
-	    System.out.println(inputt);
+	    //System.out.println(inputt);
 	    System.out.println("Interval: " + intervalFinall);
 	    System.out.println("DateStamp: " + theresult);
 	    
 	    //method to calculate new datestamp with added interval
 	    String theanswer = datestampUpdate(theresult, intervalFinall);
-	    System.out.println("The result is : " + theanswer);
+	    System.out.println("The new datestamp is : " + theanswer);
 	   
 	    scan.close();
 	    
 	    
 	    //sending new datestamp to be graded
 	    String newStamp = "{\"token\" : \"UtB497SiS6\", \"datestamp\" : " +  '"' + theanswer +  '"' + " }";
-	    System.out.println(newStamp);
 	    URL url2 = new URL( "http://challenge.code2040.org/api/validatetime" );  
 	    HttpURLConnection rca = (HttpURLConnection)url2.openConnection();  
 	    rca.setRequestMethod("POST");  
