@@ -27,7 +27,7 @@ public class thePrefix
 	    //get results that contain prefix and array
 	    Scanner scan = new Scanner(rc.getInputStream());
 	    String input = scan.nextLine();
-	    System.out.println(input);
+	    //System.out.println(input);
 	   
 	    //various dissections done to seperate Prefix and Array in the result sent 
 	    String[] parts = input.split(":");
@@ -62,9 +62,9 @@ public class thePrefix
 	    String answer = "[" + w + "]";
 	    
 	    //Print statements so I can see whats going on
-	    System.out.println(ARRAY);
-	    System.out.println(Prefix);
-	    System.out.println(answer);
+	    System.out.println("The array elements are : " + ARRAY);
+	    System.out.println("The prefix is : " + Prefix);
+	    System.out.println("The array of strings that do not contain " + Prefix + " is " + answer);
 	    scan.close();
 	    
 	    
