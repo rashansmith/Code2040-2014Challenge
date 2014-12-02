@@ -22,25 +22,21 @@ public class reverse {
 		    int len = myId.length();  
 		    rc.setRequestProperty( "Content-Length", Integer.toString( len ) );  
 		    rc.connect(); 
-		    
-		    //send code.
 		    OutputStreamWriter out = new OutputStreamWriter( rc.getOutputStream() );   
 		    out.write( myId, 0, len );  
 		    out.flush();
 		    
-		    //get code
+		    //get token to be sent back
 		    Scanner scan = new Scanner(rc.getInputStream());
 		    
 		    //dissecting the sent result to get the reversed string alone
 		    String newString = "";
 		    while(scan.hasNextLine())
 		    {
-		    //System.out.println(scan.nextLine());
 		    String input = scan.nextLine();
 		    System.out.println(input);
 		    String[] parts = input.split(":");
 		    String output = parts[1];
-		    //String newString = "";
 		    for (int i = 0; i < output.length(); i++)
 		    {
 		    	char c = output.charAt(i);
@@ -51,16 +47,15 @@ public class reverse {
 		    }
 		    System.out.println(newString);
 		    }
+		    
 		   //Reversing the string sent
 		    String result = reversethestring(newString);
-		    System.out.println(result);
 		    scan.close();
 		    
 		    
 		    
 		  //submitting the Reversed String 
 		    String reversedString = "{\"token\" : \"UtB497SiS6\", \"string\" :" + result + " }";
-		    //System.out.println(reversedString);
 		    URL url2 = new URL( "http://challenge.code2040.org/api/validatestring" );  
 		    HttpURLConnection rca = (HttpURLConnection)url2.openConnection();  
 		    rca.setRequestMethod("POST");  
@@ -70,13 +65,11 @@ public class reverse {
 		    int lens = reversedString.length();  
 		    rca.setRequestProperty( "Content-Length", Integer.toString( lens ) );  
 		    rca.connect(); 
-		    
-		    //send code.
 		    OutputStreamWriter outt = new OutputStreamWriter(rca.getOutputStream());   
 		    outt.write( reversedString, 0, lens );  
 		    outt.flush();
 		    
-		    //get code
+		    //get string which informs me whether I have passed the challenge or not
 		    Scanner scann = new Scanner(rca.getInputStream());
 		    while(scann.hasNextLine()) System.out.println(scann.nextLine());
 		    scann.close();
