@@ -50,9 +50,9 @@ public class needleInHayStack
 	    Integer answer = findNeedle(Needle, finall);
 	    
 	    //printing results at different stages so I can see whats going on
-	    System.out.println(HAYSTACK);
-	    System.out.println(Needle);
-	    System.out.println(answer);
+	    System.out.println("The haystack is : " + HAYSTACK);
+	    System.out.println("The needle is : " + Needle);
+	    System.out.println("The index of th needle in the haystack is : " + answer);
 
 	    scan.close();
 	    
