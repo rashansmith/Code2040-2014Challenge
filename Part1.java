@@ -45,7 +45,7 @@ public class reverse {
 		    		newString += c;
 		        }
 		    }
-		    System.out.println(newString);
+		    System.out.println("The reversed string is " + newString);
 		    }
 		    
 		   //Reversing the string sent
@@ -55,7 +55,7 @@ public class reverse {
 		    
 		    
 		  //submitting the Reversed String 
-		    String reversedString = "{\"token\" : \"UtB497SiS6\", \"string\" :" + result + " }";
+		    String reversedString = "{\"token\" : \"UtB497SiS6\", \"string\" :" + "\"" + result + "\"" + " }";
 		    URL url2 = new URL( "http://challenge.code2040.org/api/validatestring" );  
 		    HttpURLConnection rca = (HttpURLConnection)url2.openConnection();  
 		    rca.setRequestMethod("POST");  
