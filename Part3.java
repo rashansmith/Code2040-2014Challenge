@@ -1,6 +1,3 @@
-//This program finds words in an array that does NOT contain a certain prefix
-
-//imports
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
