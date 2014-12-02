@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class thePrefix {
+public class thePrefix 
+{
 	public static void main(String[] args) throws Exception
 	{
 	    //requesting the prefix and array
@@ -88,8 +89,8 @@ public class thePrefix {
 	    scann.close();
 	}
 	
-	//Method to find strings without certain prefix
-	public static ArrayList<String> certainPrefix(String word, String[] words)
+	    //Method to find strings without certain prefix
+	    public static ArrayList<String> certainPrefix(String word, String[] words)
 		{
 			Integer i;
 			ArrayList<String> newwords = new ArrayList();
