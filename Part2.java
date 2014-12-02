@@ -1,6 +1,5 @@
 //this program finds the needle in the Haystack :)
 
-//various imports
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -23,18 +22,16 @@ public class needleInHayStack
             int len = reqStr.length();  
 	    rc.setRequestProperty( "Content-Length", Integer.toString( len ) );  
 	    rc.connect(); 
-	    
-	    //send code.
 	    OutputStreamWriter out = new OutputStreamWriter( rc.getOutputStream() );   
 	    out.write( reqStr, 0, len );  
 	    out.flush();
 	    
-	    //get code(needle and Hay) 
+	    //get tokens(needle and Hay) 
 	    Scanner scan = new Scanner(rc.getInputStream());
 	    String input = scan.nextLine();
 	    System.out.println(input);
 	   
-	    //seperating the Needle and Haystack
+	    //seperating the Needle and Haystack from the string it was sent in
 	    String[] parts = input.split(":");
 	    String needle1 = parts[3];
 	    String[] partss = needle1.split("}");
@@ -60,7 +57,6 @@ public class needleInHayStack
 	    scan.close();
 	    
 	    
-	   
 	    //submitting the index of the needle 
 	    String needleInHay = "{\"token\" : \"UtB497SiS6\", \"needle\" :" + answer + " }";
             URL url2 = new URL( "http://challenge.code2040.org/api/validateneedle" );  
@@ -72,20 +68,19 @@ public class needleInHayStack
 	    int lens = needleInHay.length();  
 	    rca.setRequestProperty( "Content-Length", Integer.toString( lens ) );  
 	    rca.connect(); 
-	    
-	    //send code.
 	    OutputStreamWriter outt = new OutputStreamWriter(rca.getOutputStream());   
 	    outt.write( needleInHay, 0, lens );  
 	    outt.flush();
 	    
-	    //get code
+	    //find out whether I passed the challenge or not
 	    Scanner scann = new Scanner(rca.getInputStream());
 	    while(scann.hasNextLine()) System.out.println(scann.nextLine());
 	    scann.close();
 	}
 	   
-	   
-	//method that finds the needle in Haystack
+	/*method that finds the needle in Haystack. The method loops through the haystack array with a for loop
+	and using an if statement searches for a string in they haystack that also matches the Needle. As a result
+	it returns the index of that string in the array(haystack)*/
 	public static Integer findNeedle(String Needlle, String[] Haystackk)
 	{
 		Integer found;
