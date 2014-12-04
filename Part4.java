@@ -75,8 +75,6 @@ public class dateStampp
 	    int lens = newStamp.length();  
 	    rca.setRequestProperty( "Content-Length", Integer.toString( lens ) );  
 	    rca.connect(); 
-	    
-	    //send info.
 	    OutputStreamWriter outt = new OutputStreamWriter(rca.getOutputStream());   
 	    outt.write( newStamp, 0, lens );  
 	    outt.flush();
